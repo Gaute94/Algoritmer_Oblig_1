@@ -66,6 +66,30 @@ public class Oblig1 {
     }
 
     /**
+     * Oppgave 3: Algorithm for finding how many unique value in an unsorted array
+     * @param a subject array
+     * @return the amount of unique values in the passed array
+     */
+    public static int antallUlikeUsortert(int[] a) {
+
+        int counter = 0;
+
+        boolean breakingpoint;
+        for (int i = 0; i < a.length; i++) {
+
+            breakingpoint = false;
+
+            for (int k = 0; k < i; k++) {
+                if (a[i] == a[k]) {
+                    breakingpoint = true;
+                }
+            }
+
+        }
+        return counter;
+    }
+
+    /**
      * Oppg. 4
      * Sorts the given array with all odd numbers in the left side sorted and all even numbers on the right side sorted.
      *
