@@ -100,27 +100,43 @@ public class Oblig1 {
      * @return Returns a String which is the result of combining String s and String t.
      */
     public static String flett(String s, String t) {
-        int a = 0;
         int length;
-        String flett = "";
+        char[] sArray = s.toCharArray();
+        char[] tArray = t.toCharArray();
+        char[] flett = new char[sArray.length + tArray.length];
         if (s.length() > t.length()) {
             length = s.length();
         } else {
             length = t.length();
         }
-        while (a < length) {
-            if (a < s.length()) {
-                if (!(s.length() == 0)) {
-                    flett += s.charAt(a);
-                }
+
+        int flettetIndex = 0;
+        for (int i = 0; i < length; i++) {
+            if (i < s.length()) {
+                flett[flettetIndex++] = sArray[i];
             }
-            if (a < t.length()) {
-                if (!(t.length() == 0)) {
-                    flett += t.charAt(a);
-                }
+            if (i < t.length()) {
+                flett[flettetIndex++] = tArray[i];
             }
-            a++;
         }
-        return flett;
+        return new String(flett);
+    }
+
+    public static String flett(String... s){
+        String str = "";
+        int max = 0;
+        for(int k = 0; k < s.length; k++){
+            if(s[k].length() > max){
+                max = s[k].length();
+            }
+        }
+        for(int i = 0; i < max; i++) {
+            for(int j = 0; j < s.length; j++) {
+                if(i < s[j].length()) {
+                    str += s[j].charAt(i);
+                }
+            }
+        }
+        return str;
     }
 }
