@@ -28,28 +28,94 @@ public class Oblig1 {
     }
 
     /**
-     * Oppgave /
+     * Oppg. 4
+     * Sorts the given array with all odd numbers in the left side sorted and all even numbers on the right side sorted.
+     *
+     * @param a The array
+     * @return The sorted array
+     */
+    public static int[] delsortering(int[] a) {
+        // empty array
+        if (a.length <= 1)
+            return a;
+
+        int left = 0;
+        int right = a.length - 1;
+        while (true) {
+            while (a[left] % 2 != 0 && left < right) left++;
+
+            while (a[right] % 2 == 0 && right > left) right--;
+
+            if (left >= right) break;
+
+            // swap the who
+            int tmp = a[left];
+            a[left] = a[right];
+            a[right] = tmp;
+        }
+
+        if (left != a.length - 1) {
+            quickSort(a, 0, left - 1);
+            quickSort(a, left, a.length - 1);
+        } else {
+            quickSort(a, 0, a.length - 1);
+        }
+
+        return a;
+    }
+
+    /**
+     * QuickSort algorithm creates for task 4.
+     * @param arr
+     * @param low
+     * @param high
+     */
+    private static void quickSort(int[] arr, int low, int high) {
+        int left = low;
+        int right = high;
+        int pivot = arr[low + (high - low) / 2];
+        while (left <= right) {
+            while (arr[left] < pivot) left++;
+            while (arr[right] > pivot) right--;
+            if (left <= right) {
+
+                // swap the two
+                int tmp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = tmp;
+
+                // move cursors closer
+                left++;
+                right--;
+            }
+        }
+        if (low < right) quickSort(arr, low, right);
+        if (high > left) quickSort(arr, left, high);
+    }
+
+    /**
+     * Oppgave 7
      * @param s
      * @param t
      * @return Returns a String which is the result of combining String s and String t.
      */
-    public static String flett(String s, String t){
+    public static String flett(String s, String t) {
         int a = 0;
         int length;
         String flett = "";
-        if(s.length() > t.length()){
+        if (s.length() > t.length()) {
             length = s.length();
-        }else{
+        } else {
             length = t.length();
         }
-        while(a < length){
-            if(a < s.length()) {
-                if(!(s.length() == 0)) {
+        while (a < length) {
+            if (a < s.length()) {
+                if (!(s.length() == 0)) {
                     flett += s.charAt(a);
                 }
             }
-            if(a < t.length()) {
-                if(!(t.length()==0)) {
+            if (a < t.length()) {
+                if (!(t.length() == 0)) {
                     flett += t.charAt(a);
                 }
             }
@@ -57,5 +123,4 @@ public class Oblig1 {
         }
         return flett;
     }
-
 }
