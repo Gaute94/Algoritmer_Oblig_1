@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.NoSuchElementException;
+
 public class Oblig1 {
 
     /**
@@ -206,5 +208,45 @@ public class Oblig1 {
             }
         }
         return c;
+    }
+
+    /**
+     * Oppg. 9
+     * Returns the three smallest elements in the given array. The smallest in the
+     * first index.
+     *
+     * @param a The array
+     * @throws NoSuchElementException If the array has less than 3 elements
+     */
+    public static int[] tredjeMin(int[] a) {
+        if (a.length < 3)
+            throw new NoSuchElementException("The array needs to have at least 3 elements.");
+
+        int small_1 = 0;
+        for (int i = 0; i < a.length; i++) {
+            if (a[small_1] > a[i]) {
+                small_1 = i;
+            }
+        }
+
+        int small_2 = 0;
+        if (small_2 == small_1) small_2++;
+        for (int i = 0; i < a.length; i++) {
+            if (a[small_2] > a[i] && small_1 != i) {
+                small_2 = i;
+            }
+        }
+
+        int small_3 = 0;
+        if (small_3 == small_1) small_3++;
+        if (small_3 == small_2) small_3++;
+        if (small_3 == small_1) small_3++;
+        for (int i = 0; i < a.length; i++) {
+            if (a[small_3] > a[i] && small_1 != i && small_2 != i) {
+                small_3 = i;
+            }
+        }
+
+        return new int[]{small_1, small_2, small_3};
     }
 }
