@@ -245,4 +245,43 @@ public class Oblig1 {
         int[] ret = new int[]{smallestIndex0, smallestIndex1, smallestIndex2};
         return ret;
     }
+
+    public static final String ALL_UPPERCASE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZÆØÅÃ\u0098\u0085"; // added special cases for wrong format ØÆÅ :o
+
+    /**
+     * Oppg. 10
+     * Checks if every character from String a is contained in the String b, false if not.
+     * If a is an empty String, true will always be returned.
+     *
+     * @param a The String a, must be uppercase
+     * @param b The String b, must be uppercase
+     * @return True if all letters of a is contained in the letter be, false if not
+     */
+    public static boolean inneholdt(String a, String b) {
+        // an empty String is always contained in another String
+        if (a.length() == 0) return true;
+
+        // b cannot contain all characters of a if b is shorter
+        if (a.length() > b.length()) return false;
+
+        // map number of every character to the character
+        int[] bCharacterMap = new int[ALL_UPPERCASE_CHARACTERS.length()];
+        for (char bChar : b.toCharArray()) {
+            int index = ALL_UPPERCASE_CHARACTERS.indexOf(bChar);
+            if (index < 0)
+                throw new IllegalArgumentException("This function only accepts uppercase characters! Found: " + bChar);
+            bCharacterMap[index]++;
+        }
+
+        // loop through every character in the String a
+        for (char aCurr : a.toCharArray()) {
+            // subtract one from the charMap and check if less than 0
+            if (--bCharacterMap[ALL_UPPERCASE_CHARACTERS.indexOf(aCurr)] < 0) {
+                return false;
+            }
+        }
+
+        // Return true if finished the loop without returning
+        return true;
+    }
 }
