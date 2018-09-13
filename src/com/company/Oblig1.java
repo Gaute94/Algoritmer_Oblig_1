@@ -148,7 +148,7 @@ public class Oblig1 {
     /**
      * Oppgave 7 del 2
      * @param s
-     * @return Returns a String which is the result of combining all chars from all String parameters
+     * @return Returns a String which is the result of combining all chars from all parameters s
      */
     public static String flett(String... s){
         String str = "";
@@ -177,7 +177,6 @@ public class Oblig1 {
     public static int[] indekssortering(int[] a) {
         int[] b = a.clone();
         int[] c = new int[a.length];
-        int number = 0;
 
         //Sorts array b from highest to lowest
         for (int i = 0; i < a.length; i++) {
@@ -189,14 +188,20 @@ public class Oblig1 {
                 }
             }
         }
+
         for (int k = 0; k < a.length; k++) {
+            innerLoop:
             for (int l = 0; l < a.length; l++) {
                 if (b[k] == a[l]) {
-                    if (number < c.length) {
-                        c[number] = l;
-                        number++;
-                        break;
+
+                    //Sjekker om indexen allerede er brukt for å takle situasjoner hvor arrayen inneholder like verdier.
+                    for (int p = 0; p < k; p++) {
+                        if (l == c[p]) {
+                            continue innerLoop;
+                        }
                     }
+                    c[k] = l;
+                    break;
                 }
             }
         }
