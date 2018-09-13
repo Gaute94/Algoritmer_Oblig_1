@@ -145,6 +145,11 @@ public class Oblig1 {
         return new String(flett);
     }
 
+    /**
+     * Oppgave 7 del 2
+     * @param s
+     * @return Returns a String which is the result of combining all chars from all String parameters
+     */
     public static String flett(String... s){
         String str = "";
         int max = 0;
@@ -161,5 +166,40 @@ public class Oblig1 {
             }
         }
         return str;
+    }
+
+    /**
+     * Oppgave 8
+     * @param a
+     * @return Returns an array containing the indexes of the elements in the parameter "a" sorted by value
+     *         from highest to lowest.
+     */
+    public static int[] indekssortering(int[] a) {
+        int[] b = a.clone();
+        int[] c = new int[a.length];
+        int number = 0;
+
+        //Sorts array b from highest to lowest
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length; j++) {
+                if (b[i] < b[j]) {
+                    int temp = b[i];
+                    b[i] = b[j];
+                    b[j] = temp;
+                }
+            }
+        }
+        for (int k = 0; k < a.length; k++) {
+            for (int l = 0; l < a.length; l++) {
+                if (b[k] == a[l]) {
+                    if (number < c.length) {
+                        c[number] = l;
+                        number++;
+                        break;
+                    }
+                }
+            }
+        }
+        return c;
     }
 }
