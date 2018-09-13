@@ -162,7 +162,6 @@ public class Oblig1 {
      *  Oppgave 5
      */
     public static void rotasjon(char[] a) {
-
         for (int i = a.length-1; i >= 0; i--) {
             if (i != 0) {
                 char temp = a[i-1];
