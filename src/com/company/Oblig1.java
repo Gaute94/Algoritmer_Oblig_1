@@ -6,19 +6,9 @@ import java.util.NoSuchElementException;
 public class Oblig1 {
 
     /**
-        Oppgave 1
-
-        Når blir det flest ombyttinger?
-            Det blir flest ombyttinger dersom det største tallet er det
-            første tallet i listen
-
-        Når blir det færrest?
-            Det blir færrest dersom den største verdien ligger sist i arrayet
-
-        Hvor mange blir det i gjennomsnitt.
-            Gjennomsnittet er rundt 6.7 +-
-            Det ble funnet ved å gjøre funksjonen 10000 ganger, og ta gjennomsnittet ganger det skal
-            kjøres en bytting.
+     * Oppgave 1: Method for finging the max value in an array
+     * @param a the passed array to search through
+     * @return the maximum value in the passed array
      */
     public static int maks(int[] a) {
 
@@ -73,31 +63,6 @@ public class Oblig1 {
             }
         }
         return count;
-    }
-
-    /**
-     * Oppgave 3
-     */
-    public static int antallUlikeUsortert(int[] a) {
-
-        int counter = 0;
-
-        boolean breakingpoint;
-        for (int i = 0; i < a.length; i++) {
-
-            breakingpoint = false;
-
-            for (int k = 0; k < i; k++) {
-                if (a[i] == a[k]) {
-                    breakingpoint = true;
-                }
-            }
-
-            if (!breakingpoint) {
-                counter++;
-            }
-        }
-        return counter;
     }
 
     /**
