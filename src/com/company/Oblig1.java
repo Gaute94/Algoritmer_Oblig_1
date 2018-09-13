@@ -94,6 +94,29 @@ public class Oblig1 {
     }
 
     /**
+     * Oppg. 6
+     * Rotate the array by r positions
+     *
+     * @param a The array
+     * @param r The number of positions to rotate
+     * @return The rotated array
+     */
+    public static char[] rotasjon(char[] a, int r) {
+
+        char[] rotated = new char[a.length];
+
+        for (int i = 0; i < a.length; i++) {
+            int index = (i + r) % a.length;
+            if (index < 0) index += a.length;
+            rotated[index] = a[i];
+        }
+
+        System.arraycopy(rotated, 0, a, 0, a.length);
+
+        return a;
+    }
+
+    /**
      * Oppgave 7
      * @param s
      * @param t
