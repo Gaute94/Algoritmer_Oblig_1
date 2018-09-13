@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -222,31 +223,26 @@ public class Oblig1 {
         if (a.length < 3)
             throw new NoSuchElementException("The array needs to have at least 3 elements.");
 
-        int small_1 = 0;
-        for (int i = 0; i < a.length; i++) {
-            if (a[small_1] > a[i]) {
-                small_1 = i;
+        int[] smallest = indekssortering(Arrays.copyOfRange(a, 0, 3));
+
+        int smallestIndex0 = smallest[0];
+        int smallestIndex1 = smallest[1];
+        int smallestIndex2 = smallest[2];
+
+        for(int i = 3; i < a.length; i++) {
+            if(a[i] <= a[smallestIndex0]) {
+                smallestIndex2 = smallestIndex1;
+                smallestIndex1 = smallestIndex0;
+                smallestIndex0 = i;
+            } else if(a[i] <= a[smallestIndex1]) {
+                smallestIndex2 = smallestIndex1;
+                smallestIndex1 = i;
+            } else if(a[i] < a[smallestIndex2]) {
+                smallestIndex2 = i;
             }
         }
 
-        int small_2 = 0;
-        if (small_2 == small_1) small_2++;
-        for (int i = 0; i < a.length; i++) {
-            if (a[small_2] > a[i] && small_1 != i) {
-                small_2 = i;
-            }
-        }
-
-        int small_3 = 0;
-        if (small_3 == small_1) small_3++;
-        if (small_3 == small_2) small_3++;
-        if (small_3 == small_1) small_3++;
-        for (int i = 0; i < a.length; i++) {
-            if (a[small_3] > a[i] && small_1 != i && small_2 != i) {
-                small_3 = i;
-            }
-        }
-
-        return new int[]{small_1, small_2, small_3};
+        int[] ret = new int[]{smallestIndex0, smallestIndex1, smallestIndex2};
+        return ret;
     }
 }
