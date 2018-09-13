@@ -27,4 +27,35 @@ public class Oblig1 {
         return count;
     }
 
+    /**
+     * Oppgave /
+     * @param s
+     * @param t
+     * @return Returns a String which is the result of combining String s and String t.
+     */
+    public static String flett(String s, String t){
+        int a = 0;
+        int length;
+        String flett = "";
+        if(s.length() > t.length()){
+            length = s.length();
+        }else{
+            length = t.length();
+        }
+        while(a < length){
+            if(a < s.length()) {
+                if(!(s.length() == 0)) {
+                    flett += s.charAt(a);
+                }
+            }
+            if(a < t.length()) {
+                if(!(t.length()==0)) {
+                    flett += t.charAt(a);
+                }
+            }
+            a++;
+        }
+        return flett;
+    }
+
 }
