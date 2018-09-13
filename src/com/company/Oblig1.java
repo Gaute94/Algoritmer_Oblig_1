@@ -6,6 +6,51 @@ import java.util.NoSuchElementException;
 public class Oblig1 {
 
     /**
+        Oppgave 1
+
+        Når blir det flest ombyttinger?
+            Det blir flest ombyttinger dersom det største tallet er det
+            første tallet i listen
+
+        Når blir det færrest?
+            Det blir færrest dersom den største verdien ligger sist i arrayet
+
+        Hvor mange blir det i gjennomsnitt.
+            Gjennomsnittet er rundt 6.7 +-
+            Det ble funnet ved å gjøre funksjonen 10000 ganger, og ta gjennomsnittet ganger det skal
+            kjøres en bytting.
+     */
+    public static int maks(int[] a) {
+
+        if (a.length < 1) {
+            throw new NoSuchElementException("Array can not be of length (elements) 0");
+        }
+
+        for (int i = 0; i < a.length -1; i++) {
+            if (a[i] > a[i + 1]) {
+                int temp = a[i];
+                a[i] = a[i + 1];
+                a[i +1] = temp;
+            }
+        }
+        return a[a.length - 1];
+    }
+
+    public static int ombyttinger(int[] a) {
+
+        int counter = 0;
+        for (int i = 0; i < a.length -1; i++) {
+            if (a[i] > a[i + 1]) {
+                int temp = a[i];
+                a[i] = a[i + 1];
+                a[i +1] = temp;
+                ++counter;
+            }
+        }
+        return counter;
+    }
+
+    /**
      * Oppgave 2
      * @param a
      * @return Returns the amount of unique numbers in the array a.
@@ -28,6 +73,31 @@ public class Oblig1 {
             }
         }
         return count;
+    }
+
+    /**
+     * Oppgave 3
+     */
+    public static int antallUlikeUsortert(int[] a) {
+
+        int counter = 0;
+
+        boolean breakingpoint;
+        for (int i = 0; i < a.length; i++) {
+
+            breakingpoint = false;
+
+            for (int k = 0; k < i; k++) {
+                if (a[i] == a[k]) {
+                    breakingpoint = true;
+                }
+            }
+
+            if (!breakingpoint) {
+                counter++;
+            }
+        }
+        return counter;
     }
 
     /**
@@ -94,6 +164,20 @@ public class Oblig1 {
         }
         if (low < right) quickSort(arr, low, right);
         if (high > left) quickSort(arr, left, high);
+    }
+
+    /**
+     *  Oppgave 5
+     */
+    public static void rotasjon(char[] a) {
+
+        for (int i = a.length-1; i >= 0; i--) {
+            if (i != 0) {
+                char temp = a[i-1];
+                a[i-1] = a[i];
+                a[i] = temp;
+            }
+        }
     }
 
     /**
