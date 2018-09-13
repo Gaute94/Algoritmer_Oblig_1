@@ -85,6 +85,9 @@ public class Oblig1 {
                 }
             }
 
+            if (!breakingpoint) {
+                counter++;
+            }
         }
         return counter;
     }
