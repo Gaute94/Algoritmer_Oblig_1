@@ -1,8 +1,15 @@
-package com.company;
-
 import java.util.Arrays;
 import java.util.NoSuchElementException;
 
+
+/**
+ * Oblig 1 i Algorithmer og Datastrukturer
+ *
+ * Av
+ * Alexander Sagen - s326194
+ * Marius Rostad - s326185
+ * Gaute Kvalheim - s326197
+ */
 public class Oblig1 {
 
     /**
@@ -344,7 +351,7 @@ public class Oblig1 {
         for (char bChar : b.toCharArray()) {
             int index = ALL_UPPERCASE_CHARACTERS.indexOf(bChar);
             if (index < 0)
-                throw new IllegalArgumentException("This function only accepts uppercase characters! Found: " + bChar);
+                throw new IllegalArgumentException("This function only accepts uppercase characters! String: '" + a + "' and '" + b + "'");
             bCharacterMap[index]++;
         }
 

@@ -1,0 +1,18 @@
+5ac458d by Marius Rostad, message: Skrev om oppgave 5 med en litt raskere metode.
+2cc3d8a by Marius Rostad, message: La til oppgave 5
+2409a40 by Marius Rostad, message: Fikset feil med counter. Oppgave 3
+4c1ba10 by Marius Rostad, message: Gjort oppgave 3.
+b06c8b1 by Marius Rostad, message: La til oppgave 1.
+0fa8a6d by Alexander Sagen, message: Finished task 10 and the test completes successfully
+eab221a by Alexander Sagen, message: Refactored task 9 to use the correct guidelines given in the oblig.
+69a23ea by Alexander Sagen, message: Implemented task 9, find the 3 smallest numbers
+5ea9b53 by Gaute94, message: Rettet på oppgave 8 for å takle arrays med flere like tall
+106fa47 by Gaute94, message: Lagt til oppgave 8. La til javadoc oppgave 7
+6a08e2d by Alexander Sagen, message: Completed task 6
+7d5859f by Gaute94, message: La til oppgave 7 del 2 og optimaliserte 7
+5625be0 by Gaute94, message: Fikset merge conflicts
+3f83031 by Gaute94, message: La til oppgave 7
+0db4a50 by Alexander Sagen, message: Coded task 4 with quicksort. Finally passed the test.
+3ad275b by Gaute94, message: I lied, added it now
+1144ec8 by Gaute94, message: La til løsning på oppgave 2
+2bfdba4 by Gaute94, message: first commit
